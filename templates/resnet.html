@@ -1,0 +1,74 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+       
+        <a class="navbar-brand" href="/">
+            <h2 class="display-6 text-primary">Yolo</h1>
+        </a>
+        <a class="navbar-brand" href="/yolo">
+            <h2 class="display-6 text-primary">Yolo Video</h1>
+        </a>
+        <a class="navbar-brand active" href="/resnet">
+            <h2 class="display-6 text-warning">Resnet</h1>
+        </a>
+        <a class="navbar-brand " href="/resnet_dif">
+            <h2 class="display-6 text-primary">Data Set Farklı</h1>
+        </a>
+    </div>
+</nav>
+
+
+
+
+
+
+    <div class="container">
+        <br><br>
+        <form action="#" method="POST" enctype="multipart/form-data">
+            <div class="input-group">
+                <input type="file" class="form-control" name="image_name" required>
+                <input type="submit" value="Upload" class="btn btn-outline-secondary">
+            </div>
+        </form>
+    </div>
+
+    {% if upload %}
+        <div class="container">
+            <br><br>
+            <table>
+                <tr>
+                    <td>
+                        <img class="rounded float-left img-fluid" src="/static/upload/{{ upload_image }}" alt="">
+                    </td>
+                    <td>
+                        <img class="rounded float-right img-fluid" src="/static/predict/{{ upload_image }}" alt="">
+                    </td>
+                </tr>
+
+            </table>
+           
+            <table style="border: solid black; width: 100%;">
+
+                <tr >
+                    <td>
+                        <img class="img-fluid" src="/static/roi/{{ upload_image }}" alt="">
+                    </td>
+                    <td >
+                        <h1 class="display-8"> {{ text }}</h1>
+                    </td>
+
+                </tr>
+                <tr style="border: solid black;">
+                    <th>Plaka</th>
+                    <th>Plaka Yazısı</th>
+                </tr>
+            </table>
+
+        </div>
+    
+    
+    
+    {% endif %}
+{% endblock  %}
